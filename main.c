@@ -5,33 +5,47 @@
 #include <windows.h>
 #endif
 
-
+/**
+ * @brief Arquivo principal para o jogo
+ *
+ * Este arquivo é responsável por:
+ * - Inicializar o ambiente (gerador de números aleatórios e console).
+ * - Gerenciar o loop principal do jogo, permitindo múltiplas rodadas.
+ * - Lidar com toda a interação com o usuário (apostas, decisões de jogo).
+ * - Orquestrar as chamadas às funções da biblioteca blackjack.h.
+ * - Gerenciar o saldo do jogador ao longo das partidas.
+ */
 int main(void) {
+    // Configura o console do windows
     #ifdef _WIN32
     SetConsoleOutputCP(65001);
     #endif
 
+    // Garante aleatoriadade na hora do embaralhamento de cartas
     srand(time(NULL));
 
-    int continuar = 1;
-    float saldo = 100.0;
+    // -- Controle de Jogo - //
+    int continuar = 1; // Flag para novas rodadas
+    float saldo = 100.0; // Saldo inicial
 
     printf("Bem-vindo ao Blackjack!\n");
     printf("Seu saldo inicial é: R$%.2f\n", saldo);
 
+    // Loop Principal, continua enquanto o jogador quiser e tiver saldo
     while (continuar) {
         if (saldo <= 0) {
             printf("Você não tem mais saldo para apostar. Fim de jogo!\n");
             break;
         }
 
-        // Alocação das entidades
+        // Preparação da rodada - Alocação das entidades
         Baralho* b = createBaralho();
         Player* p = createPlayer(b);
         Player* d = createPlayer(b);
 
+        // Leitura da aposta
         float bet = 0;
-
+        // Valida a entrada
         while (bet <= 0 || bet > saldo) {
             printf("\nSaldo atual: R$%.2f. Faça sua aposta: ", saldo);
             char buffer_aposta[20];
@@ -46,6 +60,7 @@ int main(void) {
             }
         }
 
+        // Turno do jogador
         printf("Carta revelada do Dealer: [%s%s]\n", d->mao[0].rank, d->mao[0].naipe);
 
         int jogador_continua = 1;
@@ -58,6 +73,7 @@ int main(void) {
             jogador_continua = player_play(p, b); // A função retorna 1 ou 0 dependendo se o player quiser manter ou comprar
         }
 
+        // Turno do dealer
         if (get_value(p) <= PONTUACAO_MAXIMA) {
             // O dealer só joga se fizer sentido (o jogador não ter estourado)
             printf("\n--- Vez do Dealer ---\n");
@@ -67,11 +83,14 @@ int main(void) {
         // Funções de game over
         game_over(bet, p ,d, &saldo);
 
+        // Libera a memória alocada
         destroyBaralho(b);
         destroyPlayer(p);
         destroyPlayer(d);
 
         continuar = try_again();
     }
+
+    printf("\nObrigado por jogar! Seu saldo final é: R$%.2f\n", saldo);
     return 0;
 }
