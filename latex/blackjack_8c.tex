@@ -1,0 +1,292 @@
+\doxysection{blackjack.\+c File Reference}
+\hypertarget{blackjack_8c}{}\label{blackjack_8c}\index{blackjack.c@{blackjack.c}}
+{\ttfamily \#include "{}blackjack.\+h"{}}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{blackjack_8c_afd9ada3afd2af0d08f5f89f990ef9581}{shuffle}} (\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Baseado no algoritmo Fisher-\/\+Yates, a função troca as cartas de um baralho aleatoriamente \texorpdfstring{$\ast$}{*} Função de suporte para create\+Baralho(b) A função tem acesso direto ao vetor de cartas de b, já que é necessário acessar posições aleatórias. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_a04d9cb19223af4d1c256823bd6faa102}{push\+Card}} (\mbox{\hyperlink{struct_carta}{Carta}} c, \mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Coloca uma carta no topo do baralho, atualizando a posição da carta ao topo como em uma pilha \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_carta}{Carta}} \mbox{\hyperlink{blackjack_8c_ac76a1947b9d9350bb3bac64348f80bbf}{get\+Card}} (\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Retorna a carta no topo do baralho, a removendo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_a2a2e855c98c9f63558a435818a7f7ef8}{fill\+Baralho}} (\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Enche um baralho com um número determinado de cartas. \texorpdfstring{$\ast$}{*} Função de suporte para create\+Baralho(b) A função acessa um baralho já alocado e o preenche com cartas, fazendo uso da função push\+Card. As cartas e naipes colocados tem uma ordem pré-\/definida, sendo necessário o embaralhamento por meio de shuffle(b) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{blackjack_8c_a54871b8e0497ad83967bdedbc7773352}{create\+Baralho}} ()
+\begin{DoxyCompactList}\small\item\em Acola a memória para um novo baralho, o preenche com 52 cartas e o embaralha \texorpdfstring{$\ast$}{*} A função simula a preparação de um baralho antes de uma partida, como na realidade. Faz uso de fill\+Baralho(b) e shuffle(b), nessa ordem O baralho retornado já está pronto para uso imediato. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_af6a4dbe4374e1139f8eca3861511e2f1}{destroy\+Baralho}} (\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Libera um baralho e a sua coleção de cartas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{blackjack_8c_a4f7108b1be335adbab43e756844ca316}{create\+Player}} (\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Aloca a memória para um \doxylink{struct_player}{Player} e a sua mão, dando 2 cartas para ele Ao final da função, o player estará com 2 cartas na sua mão A função faz tratamento de erro para caso a alocação de memória ser má-\/sucedida \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_a36a604f83696668e973b54ca8214f241}{destroy\+Player}} (\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Libera a memória alocada a um \doxylink{struct_player}{Player}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{blackjack_8c_a22166468df01cfec07d543acded5c45b}{get\+\_\+value}} (\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Acessa a mão de um determinado player e retorna o valor em pontos dela A função trata a carta Ás (A) de forma inteligente, contando-\/a como 1 ao invés de 11 se a pontuação total for exceder 21. \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_a2110cb77c4974bdd95d766f3bf4673ea}{buy}} (\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Retira a carta do topo do baralho e dá para o jogador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_ab7ce3ccab46462fe85aeb268e4e194ae}{print\+\_\+mao}} (\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}p, char \texorpdfstring{$\ast$}{*}nome\+\_\+jogador)
+\begin{DoxyCompactList}\small\item\em Imprime a mão de um determinado jogador A função imprime todas as cartas e os seus respetivos naipes de uma mão, e ao final imprime o valor dessa mão. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{blackjack_8c_a87f09a5f5f161098bf0b75c7e79e9a1d}{player\+\_\+play}} (\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Trata da jogada do \doxylink{struct_player}{Player}, que decide se quer comprar ou manter Para ajudar na decisão, a função imprime a mão do jogador \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_a29f32d603a6fb695de0f2dad44d828af}{dealer\+\_\+play}} (\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}d, \mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Função que trata da rodada do bot "{}\+Dealer"{} \texorpdfstring{$\ast$}{*} O dealer comprará cartas até ter uma mão de valor igual ou maior que 17 pontos \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{blackjack_8c_a615091a03311e67c46e6c4ae7585b223}{game\+\_\+over}} (float bet, \mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}d, float \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Finaliza a rodada, compara as mãos do jogador e do dealer, e declara o vencedor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{blackjack_8c_a88bd15472f9988a39afa553f3d35c947}{try\+\_\+again}} ()
+\begin{DoxyCompactList}\small\item\em Deixa o jogado decidir se deseja continuar a jogar após o termino de uma rodada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{blackjack_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{blackjack_8c_a2110cb77c4974bdd95d766f3bf4673ea}\index{blackjack.c@{blackjack.c}!buy@{buy}}
+\index{buy@{buy}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{buy()}{buy()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a2110cb77c4974bdd95d766f3bf4673ea} 
+void buy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Retira a carta do topo do baralho e dá para o jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Jogador alvo \\
+\hline
+{\em b} & \doxylink{struct_baralho}{Baralho} utilizado \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a54871b8e0497ad83967bdedbc7773352}\index{blackjack.c@{blackjack.c}!createBaralho@{createBaralho}}
+\index{createBaralho@{createBaralho}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{createBaralho()}{createBaralho()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a54871b8e0497ad83967bdedbc7773352} 
+\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*} create\+Baralho (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Acola a memória para um novo baralho, o preenche com 52 cartas e o embaralha \texorpdfstring{$\ast$}{*} A função simula a preparação de um baralho antes de uma partida, como na realidade. Faz uso de fill\+Baralho(b) e shuffle(b), nessa ordem O baralho retornado já está pronto para uso imediato. 
+
+\begin{DoxyReturn}{Returns}
+Um ponteiro para a estrutura \doxylink{struct_baralho}{Baralho} recém-\/criada 
+\end{DoxyReturn}
+\Hypertarget{blackjack_8c_a4f7108b1be335adbab43e756844ca316}\index{blackjack.c@{blackjack.c}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a4f7108b1be335adbab43e756844ca316} 
+\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*} create\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Aloca a memória para um \doxylink{struct_player}{Player} e a sua mão, dando 2 cartas para ele Ao final da função, o player estará com 2 cartas na sua mão A função faz tratamento de erro para caso a alocação de memória ser má-\/sucedida \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & O baralho de onde as cartas devem ser retiradas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o \doxylink{struct_player}{Player} recém alocado 
+\end{DoxyReturn}
+\Hypertarget{blackjack_8c_a29f32d603a6fb695de0f2dad44d828af}\index{blackjack.c@{blackjack.c}!dealer\_play@{dealer\_play}}
+\index{dealer\_play@{dealer\_play}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{dealer\_play()}{dealer\_play()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a29f32d603a6fb695de0f2dad44d828af} 
+void dealer\+\_\+play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Função que trata da rodada do bot "{}\+Dealer"{} \texorpdfstring{$\ast$}{*} O dealer comprará cartas até ter uma mão de valor igual ou maior que 17 pontos \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Ponteiro para o Dealer \\
+\hline
+{\em b} & \doxylink{struct_baralho}{Baralho} utilizado \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_af6a4dbe4374e1139f8eca3861511e2f1}\index{blackjack.c@{blackjack.c}!destroyBaralho@{destroyBaralho}}
+\index{destroyBaralho@{destroyBaralho}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{destroyBaralho()}{destroyBaralho()}}
+{\footnotesize\ttfamily \label{blackjack_8c_af6a4dbe4374e1139f8eca3861511e2f1} 
+void destroy\+Baralho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Libera um baralho e a sua coleção de cartas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & O baralho a ser liberado da memória \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a36a604f83696668e973b54ca8214f241}\index{blackjack.c@{blackjack.c}!destroyPlayer@{destroyPlayer}}
+\index{destroyPlayer@{destroyPlayer}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{destroyPlayer()}{destroyPlayer()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a36a604f83696668e973b54ca8214f241} 
+void destroy\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Libera a memória alocada a um \doxylink{struct_player}{Player}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Estrutura de player a ser liberada \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a2a2e855c98c9f63558a435818a7f7ef8}\index{blackjack.c@{blackjack.c}!fillBaralho@{fillBaralho}}
+\index{fillBaralho@{fillBaralho}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{fillBaralho()}{fillBaralho()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a2a2e855c98c9f63558a435818a7f7ef8} 
+void fill\+Baralho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Enche um baralho com um número determinado de cartas. \texorpdfstring{$\ast$}{*} Função de suporte para create\+Baralho(b) A função acessa um baralho já alocado e o preenche com cartas, fazendo uso da função push\+Card. As cartas e naipes colocados tem uma ordem pré-\/definida, sendo necessário o embaralhamento por meio de shuffle(b) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & O baralho a ser preenchido \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a615091a03311e67c46e6c4ae7585b223}\index{blackjack.c@{blackjack.c}!game\_over@{game\_over}}
+\index{game\_over@{game\_over}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{game\_over()}{game\_over()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a615091a03311e67c46e6c4ae7585b223} 
+void game\+\_\+over (\begin{DoxyParamCaption}\item[{float}]{bet}{, }\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{d}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Finaliza a rodada, compara as mãos do jogador e do dealer, e declara o vencedor. 
+
+Esta função atualiza o saldo do jogador com base no resultado da partida (vitória, derrota ou empate) e imprime as mensagens de fim de jogo. 
+\begin{DoxyParams}{Parameters}
+{\em bet} & O valor que o jogador apostou na rodada. \\
+\hline
+{\em p} & Ponteiro para o jogador. \\
+\hline
+{\em d} & Ponteiro para o dealer. \\
+\hline
+{\em s} & Ponteiro para a variável de saldo do jogador, que será atualizada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a22166468df01cfec07d543acded5c45b}\index{blackjack.c@{blackjack.c}!get\_value@{get\_value}}
+\index{get\_value@{get\_value}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{get\_value()}{get\_value()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a22166468df01cfec07d543acded5c45b} 
+int get\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Acessa a mão de um determinado player e retorna o valor em pontos dela A função trata a carta Ás (A) de forma inteligente, contando-\/a como 1 ao invés de 11 se a pontuação total for exceder 21. \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Jogador alvo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor em pontos da mão do jogador 
+\end{DoxyReturn}
+\Hypertarget{blackjack_8c_ac76a1947b9d9350bb3bac64348f80bbf}\index{blackjack.c@{blackjack.c}!getCard@{getCard}}
+\index{getCard@{getCard}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{getCard()}{getCard()}}
+{\footnotesize\ttfamily \label{blackjack_8c_ac76a1947b9d9350bb3bac64348f80bbf} 
+\mbox{\hyperlink{struct_carta}{Carta}} get\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Retorna a carta no topo do baralho, a removendo da pilha. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \doxylink{struct_baralho}{Baralho} alvo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_carta}{Carta} retirada 
+\end{DoxyReturn}
+\Hypertarget{blackjack_8c_a87f09a5f5f161098bf0b75c7e79e9a1d}\index{blackjack.c@{blackjack.c}!player\_play@{player\_play}}
+\index{player\_play@{player\_play}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{player\_play()}{player\_play()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a87f09a5f5f161098bf0b75c7e79e9a1d} 
+int player\+\_\+play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Trata da jogada do \doxylink{struct_player}{Player}, que decide se quer comprar ou manter Para ajudar na decisão, a função imprime a mão do jogador \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Jogador \\
+\hline
+{\em b} & \doxylink{struct_baralho}{Baralho} utilizado na jogada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se o jogador decidir comprar, ou 0 se decidir manter 
+\end{DoxyReturn}
+\Hypertarget{blackjack_8c_ab7ce3ccab46462fe85aeb268e4e194ae}\index{blackjack.c@{blackjack.c}!print\_mao@{print\_mao}}
+\index{print\_mao@{print\_mao}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{print\_mao()}{print\_mao()}}
+{\footnotesize\ttfamily \label{blackjack_8c_ab7ce3ccab46462fe85aeb268e4e194ae} 
+void print\+\_\+mao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{nome\+\_\+jogador}{}\end{DoxyParamCaption})}
+
+
+
+Imprime a mão de um determinado jogador A função imprime todas as cartas e os seus respetivos naipes de uma mão, e ao final imprime o valor dessa mão. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Ponteiro para o jogador \\
+\hline
+{\em nome\+\_\+jogador} & Diferencia "{}\+Player"{} de "{}\+Dealer"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a04d9cb19223af4d1c256823bd6faa102}\index{blackjack.c@{blackjack.c}!pushCard@{pushCard}}
+\index{pushCard@{pushCard}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{pushCard()}{pushCard()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a04d9cb19223af4d1c256823bd6faa102} 
+void push\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_carta}{Carta}}}]{c}{, }\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Coloca uma carta no topo do baralho, atualizando a posição da carta ao topo como em uma pilha \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \doxylink{struct_carta}{Carta} a ser colocada \\
+\hline
+{\em b} & \doxylink{struct_baralho}{Baralho} alvo \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_afd9ada3afd2af0d08f5f89f990ef9581}\index{blackjack.c@{blackjack.c}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily \label{blackjack_8c_afd9ada3afd2af0d08f5f89f990ef9581} 
+void shuffle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_baralho}{Baralho}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Baseado no algoritmo Fisher-\/\+Yates, a função troca as cartas de um baralho aleatoriamente \texorpdfstring{$\ast$}{*} Função de suporte para create\+Baralho(b) A função tem acesso direto ao vetor de cartas de b, já que é necessário acessar posições aleatórias. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & O baralho a ser reordenado aleatoriamente \\
+\hline
+\end{DoxyParams}
+\Hypertarget{blackjack_8c_a88bd15472f9988a39afa553f3d35c947}\index{blackjack.c@{blackjack.c}!try\_again@{try\_again}}
+\index{try\_again@{try\_again}!blackjack.c@{blackjack.c}}
+\doxysubsubsection{\texorpdfstring{try\_again()}{try\_again()}}
+{\footnotesize\ttfamily \label{blackjack_8c_a88bd15472f9988a39afa553f3d35c947} 
+int try\+\_\+again (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Deixa o jogado decidir se deseja continuar a jogar após o termino de uma rodada. 
+
+\begin{DoxyReturn}{Returns}
+1 ou 0, dependendo da escolha 
+\end{DoxyReturn}

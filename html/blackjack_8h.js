@@ -1,0 +1,25 @@
+var blackjack_8h =
+[
+    [ "Carta", "struct_carta.html", "struct_carta" ],
+    [ "Baralho", "struct_baralho.html", "struct_baralho" ],
+    [ "Player", "struct_player.html", "struct_player" ],
+    [ "MULTIPLICADOR_BLACKJACK", "blackjack_8h.html#aa9c116176247dbfbeac2ef73a3370868", null ],
+    [ "PARADA_DEALER", "blackjack_8h.html#aa4aefb4c2ad8bc2927835a85a4c76f05", null ],
+    [ "PONTUACAO_MAXIMA", "blackjack_8h.html#abcb2fe244cad789bff3cd16f22a057a8", null ],
+    [ "TAMANHO_BARALHO", "blackjack_8h.html#a6453a25be75af2825e22f5da1099ed4f", null ],
+    [ "buy", "blackjack_8h.html#a2110cb77c4974bdd95d766f3bf4673ea", null ],
+    [ "createBaralho", "blackjack_8h.html#a54871b8e0497ad83967bdedbc7773352", null ],
+    [ "createPlayer", "blackjack_8h.html#a4f7108b1be335adbab43e756844ca316", null ],
+    [ "dealer_play", "blackjack_8h.html#a530678383b9652272509d3e3bf68b230", null ],
+    [ "destroyBaralho", "blackjack_8h.html#af6a4dbe4374e1139f8eca3861511e2f1", null ],
+    [ "destroyPlayer", "blackjack_8h.html#a36a604f83696668e973b54ca8214f241", null ],
+    [ "fillBaralho", "blackjack_8h.html#a2a2e855c98c9f63558a435818a7f7ef8", null ],
+    [ "game_over", "blackjack_8h.html#a615091a03311e67c46e6c4ae7585b223", null ],
+    [ "get_value", "blackjack_8h.html#a22166468df01cfec07d543acded5c45b", null ],
+    [ "getCard", "blackjack_8h.html#ac76a1947b9d9350bb3bac64348f80bbf", null ],
+    [ "player_play", "blackjack_8h.html#a87f09a5f5f161098bf0b75c7e79e9a1d", null ],
+    [ "print_mao", "blackjack_8h.html#ab7ce3ccab46462fe85aeb268e4e194ae", null ],
+    [ "pushCard", "blackjack_8h.html#a04d9cb19223af4d1c256823bd6faa102", null ],
+    [ "shuffle", "blackjack_8h.html#afd9ada3afd2af0d08f5f89f990ef9581", null ],
+    [ "try_again", "blackjack_8h.html#a88bd15472f9988a39afa553f3d35c947", null ]
+];

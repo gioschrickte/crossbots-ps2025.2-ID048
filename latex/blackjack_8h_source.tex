@@ -1,0 +1,73 @@
+\doxysection{blackjack.\+h}
+\hypertarget{blackjack_8h_source}{}\label{blackjack_8h_source}\mbox{\hyperlink{blackjack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Cod\ identificador:\ 048}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ CROSSBOTS\_PS\_BLACKJACK\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ CROSSBOTS\_PS\_BLACKJACK\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TAMANHO\_BARALHO\ 52}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ PONTUACAO\_MAXIMA\ 21}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ PARADA\_DEALER\ 17}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MULTIPLICADOR\_BLACKJACK\ 1.5}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_carta_aabfe4d7a4d3b27cc2f6fbada6c009686}{naipe}}[5];}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_carta_a9e34f141273b74cb28a3f5d6c0370404}{rank}}[3];}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_carta_a40ed698935c3b770a0b118dea14c667b}{valor}};}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{struct_carta}{Carta}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{struct_carta}{Carta}}*\ \mbox{\hyperlink{struct_baralho_ace2e5fd9725d72ed109146e673ca9539}{cartas}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_baralho_a7c06811e6b59a9ae2c2480c38c9dc4b6}{carta\_atual}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_baralho_ab701b23b8b288dcd7b3a9a40a93beff8}{tamanho}};}
+\DoxyCodeLine{00027\ \}\ \mbox{\hyperlink{struct_baralho}{Baralho}};\ \textcolor{comment}{//\ Baseado\ na\ estrutura\ de\ pilha}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{struct_carta}{Carta}}*\ \mbox{\hyperlink{struct_player_a04c957fd7e464587a302495606f39ce9}{mao}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_player_a83bd29acbedad8704d10a21cc81c195a}{num\_cards}};}
+\DoxyCodeLine{00032\ \}\mbox{\hyperlink{struct_player}{Player}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Tratamento\ de\ dados}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00043\ \mbox{\hyperlink{struct_baralho}{Baralho}}*\ \mbox{\hyperlink{blackjack_8h_a54871b8e0497ad83967bdedbc7773352}{createBaralho}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_af6a4dbe4374e1139f8eca3861511e2f1}{destroyBaralho}}(\mbox{\hyperlink{struct_baralho}{Baralho}}*\ b);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_a2a2e855c98c9f63558a435818a7f7ef8}{fillBaralho}}(\mbox{\hyperlink{struct_baralho}{Baralho}}*\ b);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_afd9ada3afd2af0d08f5f89f990ef9581}{shuffle}}(\mbox{\hyperlink{struct_baralho}{Baralho}}*\ b);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_a04d9cb19223af4d1c256823bd6faa102}{pushCard}}(\mbox{\hyperlink{struct_carta}{Carta}}\ c,\ \mbox{\hyperlink{struct_baralho}{Baralho}}\ *b);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \mbox{\hyperlink{struct_carta}{Carta}}\ \mbox{\hyperlink{blackjack_8h_ac76a1947b9d9350bb3bac64348f80bbf}{getCard}}(\mbox{\hyperlink{struct_baralho}{Baralho}}\ *b);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00089\ \mbox{\hyperlink{struct_player}{Player}}*\ \mbox{\hyperlink{blackjack_8h_a4f7108b1be335adbab43e756844ca316}{createPlayer}}(\mbox{\hyperlink{struct_baralho}{Baralho}}\ *b);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_a36a604f83696668e973b54ca8214f241}{destroyPlayer}}(\mbox{\hyperlink{struct_player}{Player}}*\ p);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ Operações}}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{blackjack_8h_a22166468df01cfec07d543acded5c45b}{get\_value}}(\mbox{\hyperlink{struct_player}{Player}}*\ p);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_a2110cb77c4974bdd95d766f3bf4673ea}{buy}}(\mbox{\hyperlink{struct_player}{Player}}\ *p,\ \mbox{\hyperlink{struct_baralho}{Baralho}}\ *b);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ Interface}}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_a530678383b9652272509d3e3bf68b230}{dealer\_play}}(\mbox{\hyperlink{struct_player}{Player}}\ *p,\ \mbox{\hyperlink{struct_baralho}{Baralho}}\ *b);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_ab7ce3ccab46462fe85aeb268e4e194ae}{print\_mao}}(\mbox{\hyperlink{struct_player}{Player}}\ *p,\ \textcolor{keywordtype}{char}*\ nome\_jogador);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{blackjack_8h_a87f09a5f5f161098bf0b75c7e79e9a1d}{player\_play}}(\mbox{\hyperlink{struct_player}{Player}}\ *p,\ \mbox{\hyperlink{struct_baralho}{Baralho}}\ *b);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{blackjack_8h_a615091a03311e67c46e6c4ae7585b223}{game\_over}}(\textcolor{keywordtype}{float}\ bet,\ \mbox{\hyperlink{struct_player}{Player}}\ *p,\ \mbox{\hyperlink{struct_player}{Player}}\ *d,\ \textcolor{keywordtype}{float}*\ s);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{blackjack_8h_a88bd15472f9988a39afa553f3d35c947}{try\_again}}();}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CROSSBOTS\_PS\_BLACKJACK\_H}}
+
+\end{DoxyCode}
