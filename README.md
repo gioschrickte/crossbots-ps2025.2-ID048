@@ -26,4 +26,4 @@ O projeto está organizado nos seguintes arquivos:
 
 ## DOCUMENTAÇÃO
 
-- Acesse `./html/index.html` para uma documentação Doxyfile do programa
+- Acesse `https://gioschrickte.github.io/crossbots-ps2025.2-ID048/` (ou /html/index.html) para uma documentação Doxyfile do programa
