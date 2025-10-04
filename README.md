@@ -14,7 +14,7 @@ Este projeto é uma implementação do clássico jogo de cartas Blackjack (ou Vi
 - **Cálculo de Pontos:** Contabilização automática dos pontos, tratando o Ás (A) como 11 ou 1, conforme a necessidade para evitar estourar 21 pontos.
 - **Múltiplas Rodadas:** O jogador pode optar por jogar novamente após o fim de uma partida.
 
-Para executar: gcc main.c blackjack.c -o blackjack
+Para executar, acesse a pasta contendo os arquivos e execute: gcc main.c blackjack.c -o blackjack
 
 ## Estrutura do Código
 
