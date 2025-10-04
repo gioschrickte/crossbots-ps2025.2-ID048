@@ -14,12 +14,16 @@ Este projeto é uma implementação do clássico jogo de cartas Blackjack (ou Vi
 - **Cálculo de Pontos:** Contabilização automática dos pontos, tratando o Ás (A) como 11 ou 1, conforme a necessidade para evitar estourar 21 pontos.
 - **Múltiplas Rodadas:** O jogador pode optar por jogar novamente após o fim de uma partida.
 
-Para executar: gcc main.c blackjack.c -o blackjack
+Para executar, acesse a pasta contendo os arquivos e execute: gcc main.c blackjack.c -o blackjack
 
 ## Estrutura do Código
 
 O projeto está organizado nos seguintes arquivos:
 
-- **blackjack.h**: Define todas as estruturas de dados (Carta, Baralho, Player) e os protótipos das funções utilizadas no jogo.
-- **blackjack.c**: Source. Contém a implementação de todas as funções declaradas em blackjack.h, abrangendo a lógica de manipulação do baralho, as ações dos jogadores e as regras do jogo.
-- **main.c**: É responsável pelo loop principal do jogo, pela interação com o usuário (entradas e saídas no console) e pelas chamadas das funções em blackjack.c
+- `blackjack.h`: Define todas as estruturas de dados (Carta, Baralho, Player) e os protótipos das funções utilizadas no jogo.
+- `blackjack.c`: Source. Contém a implementação de todas as funções declaradas em blackjack.h, abrangendo a lógica de manipulação do baralho, as ações dos jogadores e as regras do jogo.
+- `main.c`: É responsável pelo loop principal do jogo, pela interação com o usuário (entradas e saídas no console) e pelas chamadas das funções em blackjack.c
+
+## DOCUMENTAÇÃO
+
+- Acesse `./html/index.html` para uma documentação Doxyfile do programa
