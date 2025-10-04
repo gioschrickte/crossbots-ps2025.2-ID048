@@ -24,6 +24,6 @@ O projeto está organizado nos seguintes arquivos:
 - `**blackjack.c**`: Source. Contém a implementação de todas as funções declaradas em blackjack.h, abrangendo a lógica de manipulação do baralho, as ações dos jogadores e as regras do jogo.
 - `**main.c**`: É responsável pelo loop principal do jogo, pela interação com o usuário (entradas e saídas no console) e pelas chamadas das funções em blackjack.c
 
-# DOCUMENTAÇÃO
+## DOCUMENTAÇÃO
 
 - Acesse `./html/index.html` para uma documentação Doxyfile do programa
