@@ -20,9 +20,9 @@ Para executar, acesse a pasta contendo os arquivos e execute: gcc main.c blackja
 
 O projeto está organizado nos seguintes arquivos:
 
-- `**blackjack.h**`: Define todas as estruturas de dados (Carta, Baralho, Player) e os protótipos das funções utilizadas no jogo.
-- `**blackjack.c**`: Source. Contém a implementação de todas as funções declaradas em blackjack.h, abrangendo a lógica de manipulação do baralho, as ações dos jogadores e as regras do jogo.
-- `**main.c**`: É responsável pelo loop principal do jogo, pela interação com o usuário (entradas e saídas no console) e pelas chamadas das funções em blackjack.c
+- `blackjack.h`: Define todas as estruturas de dados (Carta, Baralho, Player) e os protótipos das funções utilizadas no jogo.
+- `blackjack.c`: Source. Contém a implementação de todas as funções declaradas em blackjack.h, abrangendo a lógica de manipulação do baralho, as ações dos jogadores e as regras do jogo.
+- `main.c`: É responsável pelo loop principal do jogo, pela interação com o usuário (entradas e saídas no console) e pelas chamadas das funções em blackjack.c
 
 ## DOCUMENTAÇÃO
 
