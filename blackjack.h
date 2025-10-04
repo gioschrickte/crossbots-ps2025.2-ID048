@@ -35,32 +35,32 @@ typedef struct {
 
 /**
  * @brief Acola a memória para um novo baralho, o preenche com 52 cartas e o embaralha *
- * A função simula a preparação de um baralho antes de uma partida, como na realidade.
- * Faz uso de fillBaralho(b) e shuffle(b), nessa ordem
- * O baralho retornado já está pronto para uso imediato
+ * A função simula a preparação de um baralho antes de uma partida, como na realidade.;
+ * Faz uso de fillBaralho(b) e shuffle(b), nessa ordem;
+ * O baralho retornado já está pronto para uso imediato;
  * @return Um ponteiro para a estrutura Baralho recém-criada
  */
 Baralho* createBaralho();
 
 /**
- * @brief Libera um baralho e a sua coleção de cartas
+ * @brief Libera um baralho e a sua coleção de cartas;
  * @param b O baralho a ser liberado da memória
  */
 void destroyBaralho(Baralho* b);
 
 /**
- * @brief Enche um baralho com um número determinado de cartas. *
- * Função de suporte para createBaralho(b)
- * A função acessa um baralho já alocado e o preenche com cartas, fazendo uso da função pushCard.
- * As cartas e naipes colocados tem uma ordem pré-definida, sendo necessário o embaralhamento por meio de shuffle(b)
+ * @brief Enche um baralho com um número determinado de cartas.
+ * Função de suporte para createBaralho(b);
+ * A função acessa um baralho já alocado e o preenche com cartas, fazendo uso da função pushCard.;
+ * As cartas e naipes colocados tem uma ordem pré-definida, sendo necessário o embaralhamento por meio de shuffle(b);
  * @param b O baralho a ser preenchido
  */
 void fillBaralho(Baralho* b);
 
 /**
  * @brief Baseado no algoritmo Fisher-Yates, a função troca as cartas de um baralho aleatoriamente *
- * Função de suporte para createBaralho(b)
- * A função tem acesso direto ao vetor de cartas de b, já que é necessário acessar posições aleatórias
+ * Função de suporte para createBaralho(b);
+ * A função tem acesso direto ao vetor de cartas de b, já que é necessário acessar posições aleatórias;
  * @param b O baralho a ser reordenado aleatoriamente
  */
 void shuffle(Baralho* b);
@@ -81,9 +81,9 @@ Carta getCard(Baralho *b);
 
 /**
  * @brief Aloca a memória para um Player e a sua mão, dando 2 cartas para ele
- * Ao final da função, o player estará com 2 cartas na sua mão
- * A função faz tratamento de erro para caso a alocação de memória ser má-sucedida *
- * @param b O baralho de onde as cartas devem ser retiradas
+ * Ao final da função, o player estará com 2 cartas na sua mão;
+ * A função faz tratamento de erro para caso a alocação de memória ser má-sucedida;
+ * @param b O baralho de onde as cartas devem ser retiradas;
  * @return Ponteiro para o Player recém alocado
  */
 Player* createPlayer(Baralho *b);
@@ -97,8 +97,8 @@ void destroyPlayer(Player* p);
 // Operações
 /**
  * @brief Acessa a mão de um determinado player e retorna o valor em pontos dela
- * A função trata a carta Ás (A) de forma inteligente, contando-a como 1
- * ao invés de 11 se a pontuação total for exceder 21. *
+ * A função trata a carta Ás (A) de forma inteligente, contando-a como 1;
+ * ao invés de 11 se a pontuação total for exceder 21.;
  * @param p Jogador alvo
  * @return Valor em pontos da mão do jogador
  */
