@@ -2,12 +2,12 @@ Desafio para o processo seletivo Crossbots. ID: 048
 
 # Blackjack em C
 
-Este projeto é uma implementação do clássico jogo de cartas Blackjack (ou Vinte e Um), desenvolvido em linguagem C. O objetivo é simular uma partida entre um jogador e um dealer (a "casa"), incluindo um sistema de apostas e a lógica de jogadas padrão do jogo.
+Este projeto é uma implementação do clássico jogo de cartas Blackjack (ou Vinte e Um), desenvolvido em linguagem C. O objetivo é simular uma partida entre um jogador e um dealer (bot controlado por lógica determinadaspelo enunciado), incluindo um sistema de apostas e a lógica de jogadas padrão do jogo.
 
 ## Funcionalidades
 
 - **Baralho Completo:** Simulação de um baralho padrão de 52 cartas.
-- **Embaralhamento:** O baralho é embaralhado aleatoriamente a cada nova rodada usando o algoritmo Fisher-Yates.
+- **Embaralhamento:** O baralho é embaralhado aleatoriamente a cada nova rodada.
 - **Lógica do Jogador:** O jogador pode escolher "comprar" mais cartas ou "manter" sua mão atual.
 - **Lógica do Dealer:** O dealer segue a regra padrão de comprar cartas até atingir 17 pontos ou mais.
 - **Sistema de Apostas:** O jogador inicia com um saldo e pode fazer apostas a cada rodada.
